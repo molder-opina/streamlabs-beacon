@@ -1,0 +1,30 @@
+name: publish-beacon-to-public-pages
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate ChatGPT context beacon
+        run: |
+          bash tools/gen_chatgpt_context.sh
+          test -f .chatgpt/public/chatgpt-context.json
+
+      - name: Publish to external Pages repo (gh-pages)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PAGES_PUSH_TOKEN }}
+          external_repository: molder-opina/streamlabs-beacon
+          publish_dir: .chatgpt/public
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
