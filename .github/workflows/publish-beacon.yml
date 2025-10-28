@@ -17,6 +17,10 @@ jobs:
         run: |
           bash tools/gen_chatgpt_context.sh
           test -f .chatgpt/public/chatgpt-context.json
+          
+      - name: Add .nojekyll
+        run: |
+          touch .chatgpt/public/.nojekyll
 
       - name: Publish to external Pages repo (gh-pages)
         uses: peaceiris/actions-gh-pages@v3
