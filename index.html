@@ -1,0 +1,6 @@
+<!doctype html><meta charset="utf-8"><title>ChatGPT Context</title><pre id="p"></pre>
+<script>
+fetch('./chatgpt-context.json?ts='+Date.now()).then(r=>r.json()).then(j=>{
+  document.getElementById('p').textContent = JSON.stringify(j, null, 2);
+}).catch(e=>{ document.getElementById('p').textContent = 'Error: '+e; });
+</script>

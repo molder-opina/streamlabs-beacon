@@ -1,0 +1,15 @@
+{
+  "repo": "https://github.com/molder-opina/streamlabs",
+  "branch": "main",
+  "sha": "8e6489af42a1",
+  "sha_full": "8e6489af42a158dfb0200369e8a70d1930843056",
+  "generated_at": "2026-01-13T05:25:23Z",
+  "dirty": false,
+  "last_commit": {
+    "author": "Molder",
+    "date": "2026-01-12T23:25:07-06:00",
+    "message": "last"
+  },
+  "changed_last": [],
+  "diffstat": ""
+}
